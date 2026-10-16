@@ -10,12 +10,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/fastHU/Core/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/fastHU/Core?style=for-the-badge&label=Release&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="https://github.com/fastHU/Core/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/Core/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/Core?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="https://github.com/fastHU/Core/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/Core?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/fastHU/H-RIDE?style=for-the-badge&label=Release&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/H-RIDE/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
-  <a href="https://github.com/fastHU/Core/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/Core?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ contraste que puedes interpretar en un segundo mientras pedaleas.
 
 Sin cuenta. Sin registro. Sin suscripción. Solo tienes que instalar el APK y salir a rodar.
 
-> **Sobre este repositorio**: `Core` es el repositorio oficial de H RIDE, y aloja las compilaciones
+> **Sobre este repositorio**: `H-RIDE` es el repositorio oficial de H RIDE, y aloja las compilaciones
 > publicadas, las notas de versión y la documentación. Estas compilaciones van firmadas con la clave
 > de publicación del desarrollador, así que cada actualización se instala sobre la anterior sin más.
 
@@ -59,11 +59,11 @@ Sin cuenta. Sin registro. Sin suscripción. Solo tienes que instalar el APK y sa
 
 ## 📥 Descarga
 
-Consigue el APK más reciente en la página de [**Releases**](https://github.com/fastHU/Core/releases/latest).
+Consigue el APK más reciente en la página de [**Releases**](https://github.com/fastHU/H-RIDE/releases/latest).
 
 | Versión | Archivo | Tamaño | Requiere | SHA-256 |
 |---|---|---|---|---|
-| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/Core/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/H-RIDE/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
 
 Verifica tu descarga antes de instalar:
 
@@ -159,11 +159,11 @@ código fuente de Android está en la [hoja de ruta](#-hoja-de-ruta): sigue el r
 - [ ] Exportar salidas (GPX)
 - [ ] Más unidades, temas e idiomas
 
-Las ideas y los informes de errores son bienvenidos en [Issues](https://github.com/fastHU/Core/issues).
+Las ideas y los informes de errores son bienvenidos en [Issues](https://github.com/fastHU/H-RIDE/issues).
 
 ## 🤝 Contribuir
 
-- 🐞 ¿Has encontrado un error? [Abre una incidencia](https://github.com/fastHU/Core/issues/new) con el modelo de tu teléfono,
+- 🐞 ¿Has encontrado un error? [Abre una incidencia](https://github.com/fastHU/H-RIDE/issues/new) con el modelo de tu teléfono,
   la versión de Android y lo que ocurrió.
 - 💡 ¿Tienes una idea? Inicia un debate en una incidencia: las peticiones de funciones dan forma a la hoja de ruta.
 - 🌍 Las traducciones de este README son bienvenidas: copia `README.md`, tradúcelo y abre una pull request.
@@ -185,8 +185,8 @@ Publicado bajo la [Licencia MIT](LICENSE) © 2026 fastHU.
   <br>
   <img src="assets/icon.png" alt="H RIDE" width="72">
   <br><br>
-  <a href="https://star-history.com/#fastHU/Core&Date">
-    <img src="https://api.star-history.com/svg?repos=fastHU/Core&type=Date" alt="Star history" width="600">
+  <a href="https://star-history.com/#fastHU/H-RIDE&Date">
+    <img src="https://api.star-history.com/svg?repos=fastHU/H-RIDE&type=Date" alt="Star history" width="600">
   </a>
   <br><br>
   <sub>Hecho para ciclistas, por un ciclista. 🚵</sub>

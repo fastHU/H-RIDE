@@ -26,4 +26,4 @@ First public release. 🎉
 - Signed with the H RIDE release key (certificate SHA-256
   `d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`).
 
-[1.0.0]: https://github.com/fastHU/Core/releases/tag/v1.0.0
+[1.0.0]: https://github.com/fastHU/H-RIDE/releases/tag/v1.0.0

@@ -10,12 +10,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/fastHU/Core/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/fastHU/Core?style=for-the-badge&label=Release&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="https://github.com/fastHU/Core/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/Core/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/Core?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="https://github.com/fastHU/Core/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/Core?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/fastHU/H-RIDE?style=for-the-badge&label=Release&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/H-RIDE/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
-  <a href="https://github.com/fastHU/Core/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/Core?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@
 
 无需账号，无需注册，无需订阅。装上 APK，直接上路。
 
-> **关于本仓库** — `Core` 是 H RIDE 的官方发布仓库，用于托管发行版本、
+> **关于本仓库** — `H-RIDE` 是 H RIDE 的官方发布仓库，用于托管发行版本、
 > 更新日志与文档。已发布的安装包均使用开发者的正式发布密钥签名，
 > 因此每次更新都能直接覆盖上一版本，干净利落。
 
@@ -59,11 +59,11 @@
 
 ## 📥 下载
 
-前往 [**Releases**](https://github.com/fastHU/Core/releases/latest) 页面获取最新版 APK。
+前往 [**Releases**](https://github.com/fastHU/H-RIDE/releases/latest) 页面获取最新版 APK。
 
 | 版本 | 文件 | 大小 | 系统要求 | SHA-256 |
 |---|---|---|---|---|
-| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/Core/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/H-RIDE/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
 
 安装前请先校验下载文件：
 
@@ -159,11 +159,11 @@ Android 7.0 (API 24) 及以上，32 位与 64 位设备均可。
 - [ ] 导出骑行记录（GPX）
 - [ ] 更多单位、主题与语言
 
-欢迎在 [Issues](https://github.com/fastHU/Core/issues) 中提出想法和反馈 bug。
+欢迎在 [Issues](https://github.com/fastHU/H-RIDE/issues) 中提出想法和反馈 bug。
 
 ## 🤝 参与贡献
 
-- 🐞 发现 bug？请[提交 issue](https://github.com/fastHU/Core/issues/new)，附上你的手机型号、
+- 🐞 发现 bug？请[提交 issue](https://github.com/fastHU/H-RIDE/issues/new)，附上你的手机型号、
   Android 版本以及问题发生的经过。
 - 💡 有想法？在 issue 里发起讨论——功能建议会直接影响路线图。
 - 🌍 欢迎翻译本 README：复制 `README.md`，翻译后提交 pull request。
@@ -185,8 +185,8 @@ Android 7.0 (API 24) 及以上，32 位与 64 位设备均可。
   <br>
   <img src="assets/icon.png" alt="H RIDE" width="72">
   <br><br>
-  <a href="https://star-history.com/#fastHU/Core&Date">
-    <img src="https://api.star-history.com/svg?repos=fastHU/Core&type=Date" alt="Star history" width="600">
+  <a href="https://star-history.com/#fastHU/H-RIDE&Date">
+    <img src="https://api.star-history.com/svg?repos=fastHU/H-RIDE&type=Date" alt="Star history" width="600">
   </a>
   <br><br>
   <sub>骑手打造，献给骑手。🚵</sub>

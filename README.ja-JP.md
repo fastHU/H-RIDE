@@ -10,12 +10,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/fastHU/Core/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/fastHU/Core?style=for-the-badge&label=Release&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="https://github.com/fastHU/Core/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/Core/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/Core?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
-  <a href="https://github.com/fastHU/Core/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/Core?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/fastHU/H-RIDE?style=for-the-badge&label=Release&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/H-RIDE/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
-  <a href="https://github.com/fastHU/Core/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/Core?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
+  <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@
 
 アカウントは不要。サインアップも不要。サブスクリプションもありません。APK をインストールして、走るだけです。
 
-> **このリポジトリについて** — `Core` は H RIDE の公式配布リポジトリです。リリースビルド、リリースノート、
+> **このリポジトリについて** — `H-RIDE` は H RIDE の公式配布リポジトリです。リリースビルド、リリースノート、
 > ドキュメントを公開しています。公開されるビルドは開発者のリリースキーで署名されているため、
 > すべてのアップデートが以前のバージョンの上にクリーンにインストールされます。
 
@@ -59,11 +59,11 @@
 
 ## 📥 ダウンロード
 
-最新の APK は [**Releases**](https://github.com/fastHU/Core/releases/latest) ページから入手してください。
+最新の APK は [**Releases**](https://github.com/fastHU/H-RIDE/releases/latest) ページから入手してください。
 
 | バージョン | ファイル | サイズ | 必要条件 | SHA-256 |
 |---|---|---|---|---|
-| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/Core/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/H-RIDE/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
 
 インストール前にダウンロードしたファイルを検証してください：
 
@@ -159,12 +159,12 @@ Play ストア以外からインストールするすべてのアプリで、こ
 - [ ] ライドのエクスポート（GPX）
 - [ ] 単位、テーマ、言語の追加
 
-アイデアやバグ報告は [Issues](https://github.com/fastHU/Core/issues) でお待ちしています。
+アイデアやバグ報告は [Issues](https://github.com/fastHU/H-RIDE/issues) でお待ちしています。
 
 ## 🤝 コントリビューション
 
 - 🐞 バグを見つけましたか？ お使いの端末モデル、Android のバージョン、発生した内容を添えて
-  [Issue を作成](https://github.com/fastHU/Core/issues/new)してください。
+  [Issue を作成](https://github.com/fastHU/H-RIDE/issues/new)してください。
 - 💡 アイデアがありますか？ Issue でディスカッションを始めましょう — 機能リクエストがロードマップを形作ります。
 - 🌍 この README の翻訳を歓迎します：`README.md` をコピーして翻訳し、プルリクエストをお送りください。
 - ⭐ H RIDE がお役に立つなら、スターが他のライダーの目に留まる助けになります。
@@ -185,8 +185,8 @@ Play ストア以外からインストールするすべてのアプリで、こ
   <br>
   <img src="assets/icon.png" alt="H RIDE" width="72">
   <br><br>
-  <a href="https://star-history.com/#fastHU/Core&Date">
-    <img src="https://api.star-history.com/svg?repos=fastHU/Core&type=Date" alt="Star history" width="600">
+  <a href="https://star-history.com/#fastHU/H-RIDE&Date">
+    <img src="https://api.star-history.com/svg?repos=fastHU/H-RIDE&type=Date" alt="Star history" width="600">
   </a>
   <br><br>
   <sub>ライダーのために、ライダーが作りました。🚵</sub>
