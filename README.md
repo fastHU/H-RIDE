@@ -15,6 +15,8 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
+  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -39,9 +41,9 @@ can read in one second while riding.
 
 No account. No sign-up. No subscription. Just install the APK and ride.
 
-> **About this repository** — `H-RIDE` is the official distribution repository for H RIDE. It hosts
-> the release builds, release notes and documentation. Published builds are signed with the
-> developer's release key, so every update installs cleanly over the previous one.
+> **About this repository** — `H-RIDE` is the official repository for H RIDE: signed release
+> builds, the [source reference](decompiled/) recovered from the APK, release notes and
+> documentation. Every build is signed with the same release key, so updates install cleanly.
 
 ## ✨ Features
 
@@ -56,6 +58,27 @@ No account. No sign-up. No subscription. Just install the APK and ride.
 | 🗺️ | **Topographic map** | A live map view with topo/terrain tile layers (OpenTopoMap, Thunderforest, USGS) — built for trails, not just city streets. |
 | 🌙 | **Background recording** | A foreground service keeps the ride recording when the screen is off or you switch apps. |
 | 🎨 | **Built with Jetpack Compose** | A modern, smooth, native Android UI. |
+
+## 📂 Source code
+
+The app's code ships with this repository in [`decompiled/`](decompiled/) — recovered from the
+official APK with [jadx](https://github.com/skylot/jadx). The release build was minified but **not
+obfuscated**, so every real class, field and method name survived and the whole architecture is
+readable.
+
+| Path | Contents |
+|---|---|
+| [`data/db`](decompiled/sources/com/example/data/db) | Room database — ride entity, DAO, repository, track points |
+| [`data/service`](decompiled/sources/com/example/data/service) | Foreground ride-tracking service and the live stats manager |
+| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Compose screens — home, recording, history, ride detail |
+| [`ui/map`](decompiled/sources/com/example/ui/map) | osmdroid map view, tile sources, map mode switch |
+| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | Navigation models and routing UI |
+| [`ui/theme`](decompiled/sources/com/example/ui/theme) | Theme and glassmorphism components |
+| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | Decoded application manifest |
+
+> The reference is generated Java: names and structure are real, but Kotlin syntax, comments and
+> Compose idioms are not recoverable, and it does not build as-is. Read it as the map of the app —
+> see [how it was produced](decompiled/README.md).
 
 ## 📥 Download
 
@@ -145,15 +168,19 @@ published above so you can verify it.
 </details>
 
 <details>
-<summary><b>Where is the source code?</b></summary>
+<summary><b>Is the original Kotlin source included?</b></summary>
 
-This repository publishes the official builds, the documentation and a [machine-decompiled reference](decompiled/) of the app's code. The original Kotlin project was lost, so that reference is not the original source and does not build as-is.
+The original Kotlin project was not preserved, so this repository publishes the
+[code recovered from the official APK](decompiled/) instead. Real class, field and method names are
+intact and the entire architecture is readable, but it is generated Java and does not compile as-is.
+See [`decompiled/README.md`](decompiled/README.md).
 </details>
 
 ## 🗺️ Roadmap
 
 - [x] First public release (`v1.0.0`)
-- [ ] Reconstruct a clean, buildable Kotlin project from the decompiled reference
+- [x] Publish the app's code ([`decompiled/`](decompiled/) source reference)
+- [ ] Rewrite a clean, buildable Kotlin project from the reference
 - [ ] Ride history and per-ride statistics
 - [ ] Export rides (GPX)
 - [ ] More units, themes and languages

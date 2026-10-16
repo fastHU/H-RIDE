@@ -15,6 +15,8 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
+  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -39,9 +41,9 @@
 
 Без аккаунта. Без регистрации. Без подписки. Просто установите APK и катайтесь.
 
-> **Об этом репозитории** — `H-RIDE` — официальный репозиторий распространения H RIDE. Здесь лежат
-> релизные сборки, примечания к выпускам и документация. Опубликованные сборки подписаны релизным
-> ключом разработчика, поэтому каждое обновление ставится поверх предыдущего без проблем.
+> **Об этом репозитории** — `H-RIDE` — официальный репозиторий H RIDE: подписанные сборки,
+> [справочный код, восстановленный из APK](decompiled/), описания выпусков и документация.
+> Все сборки подписаны одним ключом, поэтому обновления ставятся поверх.
 
 ## ✨ Возможности
 
@@ -56,6 +58,27 @@
 | 🗺️ | **Топографическая карта** | Живая карта с топографическими и рельефными слоями (OpenTopoMap, Thunderforest, USGS) — создана для трейлов, а не только для городских улиц. |
 | 🌙 | **Запись в фоне** | Foreground-сервис продолжает запись поездки, когда экран выключен или вы переключились в другое приложение. |
 | 🎨 | **Сделано на Jetpack Compose** | Современный, плавный, нативный интерфейс Android. |
+
+## 📂 Исходный код
+
+Код приложения поставляется вместе с репозиторием в [`decompiled/`](decompiled/) — он восстановлен из
+официального APK с помощью [jadx](https://github.com/skylot/jadx). Релизная сборка была только
+минифицирована, **без обфускации**, поэтому настоящие имена классов, полей и методов сохранились и
+всю архитектуру можно читать.
+
+| Путь | Содержимое |
+|---|---|
+| [`data/db`](decompiled/sources/com/example/data/db) | База Room — сущность поездки, DAO, репозиторий, точки трека |
+| [`data/service`](decompiled/sources/com/example/data/service) | Foreground-сервис записи поездки и менеджер статистики |
+| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Экраны Compose — главный, запись, история, детали поездки |
+| [`ui/map`](decompiled/sources/com/example/ui/map) | Карта osmdroid, источники тайлов, переключение режимов |
+| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | Модели навигации и интерфейс маршрута |
+| [`ui/theme`](decompiled/sources/com/example/ui/theme) | Тема и компоненты в стиле glassmorphism |
+| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | Декодированный манифест |
+
+> Это сгенерированный Java-код: имена и структура настоящие, но синтаксис Kotlin, комментарии и
+> конструкции Compose не восстанавливаются, и он не собирается как есть. Читайте его как карту
+> приложения — см. [как он получен](decompiled/README.md).
 
 ## 📥 Загрузка
 
@@ -145,15 +168,19 @@ Android 7.0 (API 24) и новее, на 32- и 64-битных устройст
 </details>
 
 <details>
-<summary><b>Где исходный код?</b></summary>
+<summary><b>Входит ли сюда оригинальный исходный код на Kotlin?</b></summary>
 
-В этом репозитории публикуются официальные сборки, документация и [справочный код, полученный декомпиляцией APK](decompiled/). Исходный проект на Kotlin утрачен, поэтому это не оригинальный исходный код, и он не собирается как есть.
+Оригинальный проект на Kotlin не сохранился, поэтому репозиторий публикует
+[код, восстановленный из официального APK](decompiled/). Настоящие имена классов, полей и методов
+сохранены, архитектура читается, но это сгенерированный Java, и он не компилируется как есть.
+Подробности — в [`decompiled/README.md`](decompiled/README.md).
 </details>
 
 ## 🗺️ План развития
 
 - [x] Первый публичный релиз (`v1.0.0`)
-- [ ] Восстановить чистый собираемый проект на Kotlin на основе декомпилированного справочника
+- [x] Опубликовать код приложения ([справочник `decompiled/`](decompiled/))
+- [ ] Переписать чистый собираемый проект на Kotlin на основе справочника
 - [ ] История поездок и статистика по каждой поездке
 - [ ] Экспорт поездок (GPX)
 - [ ] Больше единиц измерения, тем и языков

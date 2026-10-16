@@ -15,6 +15,8 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
+  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -39,9 +41,9 @@ contraste que puedes interpretar en un segundo mientras pedaleas.
 
 Sin cuenta. Sin registro. Sin suscripción. Solo tienes que instalar el APK y salir a rodar.
 
-> **Sobre este repositorio**: `H-RIDE` es el repositorio oficial de H RIDE, y aloja las compilaciones
-> publicadas, las notas de versión y la documentación. Estas compilaciones van firmadas con la clave
-> de publicación del desarrollador, así que cada actualización se instala sobre la anterior sin más.
+> **Sobre este repositorio** — `H-RIDE` es el repositorio oficial de H RIDE: compilaciones firmadas,
+> la [referencia del código recuperada del APK](decompiled/), notas de versión y documentación.
+> Todas las compilaciones se firman con la misma clave, así que las actualizaciones se instalan encima.
 
 ## ✨ Funciones
 
@@ -56,6 +58,27 @@ Sin cuenta. Sin registro. Sin suscripción. Solo tienes que instalar el APK y sa
 | 🗺️ | **Mapa topográfico** | Vista de mapa en vivo con capas de teselas topográficas y de terreno (OpenTopoMap, Thunderforest, USGS): pensado para senderos, no solo para calles de ciudad. |
 | 🌙 | **Grabación en segundo plano** | Un servicio en primer plano mantiene la grabación de la salida aunque apagues la pantalla o cambies de aplicación. |
 | 🎨 | **Hecho con Jetpack Compose** | Una interfaz de Android nativa, moderna y fluida. |
+
+## 📂 Código fuente
+
+El código de la app se incluye en este repositorio, en [`decompiled/`](decompiled/) — recuperado del
+APK oficial con [jadx](https://github.com/skylot/jadx). La compilación de release solo se minimizó,
+**no se ofuscó**, así que se conservan los nombres reales de clases, campos y métodos y toda la
+arquitectura es legible.
+
+| Ruta | Contenido |
+|---|---|
+| [`data/db`](decompiled/sources/com/example/data/db) | Base de datos Room — entidad de ruta, DAO, repositorio, puntos de traza |
+| [`data/service`](decompiled/sources/com/example/data/service) | Servicio en primer plano de grabación y gestor de estadísticas en vivo |
+| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Pantallas Compose — inicio, grabación, historial, detalle |
+| [`ui/map`](decompiled/sources/com/example/ui/map) | Vista de mapa osmdroid, fuentes de teselas, cambio de modo |
+| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | Modelos de navegación e interfaz de ruta |
+| [`ui/theme`](decompiled/sources/com/example/ui/theme) | Tema y componentes de glassmorphism |
+| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | Manifiesto decodificado |
+
+> La referencia es Java generado: los nombres y la estructura son reales, pero la sintaxis de Kotlin,
+> los comentarios y las construcciones de Compose no se recuperan, y no compila tal cual. Léelo como
+> el mapa de la app — consulta [cómo se generó](decompiled/README.md).
 
 ## 📥 Descarga
 
@@ -145,15 +168,19 @@ publica más arriba para que puedas verificarlo.
 </details>
 
 <details>
-<summary><b>¿Dónde está el código fuente?</b></summary>
+<summary><b>¿Se incluye el código fuente original en Kotlin?</b></summary>
 
-Este repositorio publica las compilaciones oficiales, la documentación y una [referencia del código obtenida por descompilación](decompiled/). El proyecto Kotlin original se perdió, así que esa referencia no es el código fuente original ni se puede compilar tal cual.
+El proyecto Kotlin original no se conservó, así que este repositorio publica el
+[código recuperado del APK oficial](decompiled/). Los nombres reales de clases, campos y métodos están
+intactos y toda la arquitectura es legible, pero es Java generado y no compila tal cual.
+Consulta [`decompiled/README.md`](decompiled/README.md).
 </details>
 
 ## 🗺️ Hoja de ruta
 
 - [x] Primera versión pública (`v1.0.0`)
-- [ ] Reconstruir un proyecto Kotlin limpio y compilable a partir de la referencia descompilada
+- [x] Publicar el código de la app ([referencia en `decompiled/`](decompiled/))
+- [ ] Reescribir un proyecto Kotlin limpio y compilable a partir de la referencia
 - [ ] Historial de salidas y estadísticas por salida
 - [ ] Exportar salidas (GPX)
 - [ ] Más unidades, temas e idiomas

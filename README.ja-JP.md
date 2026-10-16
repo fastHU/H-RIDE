@@ -15,6 +15,8 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
+  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -39,9 +41,9 @@
 
 アカウントは不要。サインアップも不要。サブスクリプションもありません。APK をインストールして、走るだけです。
 
-> **このリポジトリについて** — `H-RIDE` は H RIDE の公式配布リポジトリです。リリースビルド、リリースノート、
-> ドキュメントを公開しています。公開されるビルドは開発者のリリースキーで署名されているため、
-> すべてのアップデートが以前のバージョンの上にクリーンにインストールされます。
+> **このリポジトリについて** — `H-RIDE` は H RIDE の公式リポジトリです。署名済みビルド、
+> [APK から復元したソース参考](decompiled/)、リリースノート、ドキュメントを公開しています。
+> すべてのビルドは同じリリースキーで署名されているため、上書き更新できます。
 
 ## ✨ 機能
 
@@ -56,6 +58,27 @@
 | 🗺️ | **地形図** | 地形・テレインタイルレイヤー（OpenTopoMap、Thunderforest、USGS）を備えたライブマップ表示 — 市街地だけでなく、トレイルのために作られています。 |
 | 🌙 | **バックグラウンド記録** | フォアグラウンドサービスにより、画面オフやアプリ切り替え中でもライドを記録し続けます。 |
 | 🎨 | **Jetpack Compose で構築** | モダンで滑らかなネイティブ Android UI。 |
+
+## 📂 ソースコード
+
+アプリのコードは [`decompiled/`](decompiled/) に同梱されています —— 公式 APK から
+[jadx](https://github.com/skylot/jadx) で復元したものです。リリースビルドは圧縮のみで
+**難読化されていない**ため、実際のクラス名・フィールド名・メソッド名がそのまま残り、
+アーキテクチャ全体を読むことができます。
+
+| パス | 内容 |
+|---|---|
+| [`data/db`](decompiled/sources/com/example/data/db) | Room データベース —— ライド記録エンティティ、DAO、リポジトリ、トラックポイント |
+| [`data/service`](decompiled/sources/com/example/data/service) | フォアグラウンドのライド記録サービスとリアルタイム統計マネージャ |
+| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Compose 画面 —— ホーム、記録中、履歴、ライド詳細 |
+| [`ui/map`](decompiled/sources/com/example/ui/map) | osmdroid 地図ビュー、タイルソース、地図モード切替 |
+| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | ナビゲーションモデルとルート UI |
+| [`ui/theme`](decompiled/sources/com/example/ui/theme) | テーマとグラスモーフィズムのコンポーネント |
+| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | デコード済みマニフェスト |
+
+> この参考コードは生成された Java です。名前と構造は本物ですが、Kotlin の構文・コメント・
+> Compose の記法は復元できず、そのままではビルドできません。アプリの地図として読んでください ——
+> [生成方法と注意点](decompiled/README.md)。
 
 ## 📥 ダウンロード
 
@@ -145,15 +168,18 @@ Play ストア以外からインストールするすべてのアプリで、こ
 </details>
 
 <details>
-<summary><b>ソースコードはどこにありますか？</b></summary>
+<summary><b>元の Kotlin ソースは含まれていますか？</b></summary>
 
-このリポジトリでは、公式ビルド・ドキュメントに加えて、APK から[逆コンパイルしたコードのリファレンス](decompiled/)を公開しています。元の Kotlin プロジェクトは失われているため、これは元のソースコードではなく、そのままビルドすることもできません。
+元の Kotlin プロジェクトは残っていないため、本リポジトリでは[公式 APK から復元したコード](decompiled/)を
+公開しています。実際のクラス名・フィールド名・メソッド名はそのまま残り、アーキテクチャ全体を読めますが、
+生成された Java でありそのままではコンパイルできません。詳細は [`decompiled/README.md`](decompiled/README.md) をご覧ください。
 </details>
 
 ## 🗺️ ロードマップ
 
 - [x] 初回公開リリース（`v1.0.0`）
-- [ ] 逆コンパイルしたリファレンスを元に、クリーンでビルド可能な Kotlin プロジェクトを再構築する
+- [x] アプリのコードを公開（[`decompiled/`](decompiled/) のソース参考）
+- [ ] 参考コードを元に、クリーンでビルド可能な Kotlin プロジェクトを書き直す
 - [ ] ライド履歴とライドごとの統計
 - [ ] ライドのエクスポート（GPX）
 - [ ] 単位、テーマ、言語の追加

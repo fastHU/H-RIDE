@@ -15,6 +15,8 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
   <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
+  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -39,9 +41,8 @@
 
 免帳號。免註冊。免訂閱。裝上 APK，上路就對了。
 
-> **關於本儲存庫** —— `H-RIDE` 是 H RIDE 的官方發佈儲存庫，負責存放正式版本、版本說明與
-> 相關文件。發佈的版本皆以開發者的正式簽署金鑰簽章，因此每次更新都能直接覆蓋舊版、
-> 乾淨升級。
+> **關於本倉庫** — `H-RIDE` 是 H RIDE 的官方倉庫：簽章安裝檔、[由 APK 還原的程式碼參考](decompiled/)、
+> 發行說明與文件。所有版本使用同一把發佈金鑰簽章，可覆蓋安裝升級。
 
 ## ✨ 功能特色
 
@@ -56,6 +57,25 @@
 | 🗺️ | **地形圖** | 即時地圖檢視，支援地形／地貌圖磚圖層（OpenTopoMap、Thunderforest、USGS）——為越野路線而生，不只適用市區街道。 |
 | 🌙 | **背景錄製** | 前景服務讓螢幕關閉或切換 App 時仍持續記錄騎乘。 |
 | 🎨 | **以 Jetpack Compose 打造** | 現代、流暢的原生 Android 介面。 |
+
+## 📂 原始碼
+
+本應用程式的程式碼隨倉庫一起提供，位於 [`decompiled/`](decompiled/) —— 由官方 APK 經
+[jadx](https://github.com/skylot/jadx) 還原而來。發行版僅做壓縮、**未經混淆**，因此真實的類別名稱、
+欄位名稱與方法名稱全數保留，整體架構可直接閱讀。
+
+| 目錄 | 內容 |
+|---|---|
+| [`data/db`](decompiled/sources/com/example/data/db) | Room 資料庫 —— 騎乘紀錄實體、DAO、倉儲層、軌跡點 |
+| [`data/service`](decompiled/sources/com/example/data/service) | 前景騎乘紀錄服務與即時數據管理器 |
+| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Compose 介面 —— 首頁、紀錄中、歷史、騎乘詳情 |
+| [`ui/map`](decompiled/sources/com/example/ui/map) | osmdroid 地圖檢視、圖磚來源、地圖模式切換 |
+| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | 導航模型與路線介面 |
+| [`ui/theme`](decompiled/sources/com/example/ui/theme) | 主題與玻璃擬態元件 |
+| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | 解碼後的應用程式清單 |
+
+> 這份參考是產生的 Java 程式碼：命名與結構是真實的，但 Kotlin 語法、註解與 Compose 寫法無法還原，
+> 且無法直接編譯。請將它視為應用程式的地圖 —— 詳見[產生方式與說明](decompiled/README.md)。
 
 ## 📥 下載
 
@@ -145,15 +165,17 @@ SHA-256
 </details>
 
 <details>
-<summary><b>原始碼在哪裡？</b></summary>
+<summary><b>是否包含原始的 Kotlin 原始碼？</b></summary>
 
-本倉庫發佈官方安裝檔、文件，以及一份[由 APK 反編譯得到的程式碼參考](decompiled/)。原始 Kotlin 專案已遺失，因此該參考並非原始原始碼，也無法直接編譯。
+原始 Kotlin 專案並未保留下來，因此本倉庫發佈的是[由官方 APK 還原的程式碼](decompiled/)。真實的類別、
+欄位與方法名稱完整保留，整體架構可讀，但它是產生的 Java 程式碼，無法直接編譯。詳見 [`decompiled/README.md`](decompiled/README.md)。
 </details>
 
 ## 🗺️ 路線圖
 
 - [x] 首次公開發佈（`v1.0.0`）
-- [ ] 依據反編譯參考重建一份乾淨、可編譯的 Kotlin 專案
+- [x] 發佈應用程式碼（[`decompiled/`](decompiled/) 還原參考）
+- [ ] 依此參考重寫一份乾淨、可編譯的 Kotlin 專案
 - [ ] 騎乘歷史與單趟騎乘統計
 - [ ] 匯出騎乘紀錄（GPX）
 - [ ] 更多單位、主題與語言
