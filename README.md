@@ -147,14 +147,13 @@ published above so you can verify it.
 <details>
 <summary><b>Where is the source code?</b></summary>
 
-This repository currently hosts the official builds and documentation. Publishing the full Android
-source is on the [roadmap](#-roadmap) — watch the repository to be notified.
+This repository publishes the official builds, the documentation and a [machine-decompiled reference](decompiled/) of the app's code. The original Kotlin project was lost, so that reference is not the original source and does not build as-is.
 </details>
 
 ## 🗺️ Roadmap
 
 - [x] First public release (`v1.0.0`)
-- [ ] Publish the full Android source code
+- [ ] Reconstruct a clean, buildable Kotlin project from the decompiled reference
 - [ ] Ride history and per-ride statistics
 - [ ] Export rides (GPX)
 - [ ] More units, themes and languages

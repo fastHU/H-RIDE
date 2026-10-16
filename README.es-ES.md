@@ -147,14 +147,13 @@ publica más arriba para que puedas verificarlo.
 <details>
 <summary><b>¿Dónde está el código fuente?</b></summary>
 
-Actualmente este repositorio aloja las compilaciones oficiales y la documentación. Publicar todo el
-código fuente de Android está en la [hoja de ruta](#-hoja-de-ruta): sigue el repositorio para recibir el aviso.
+Este repositorio publica las compilaciones oficiales, la documentación y una [referencia del código obtenida por descompilación](decompiled/). El proyecto Kotlin original se perdió, así que esa referencia no es el código fuente original ni se puede compilar tal cual.
 </details>
 
 ## 🗺️ Hoja de ruta
 
 - [x] Primera versión pública (`v1.0.0`)
-- [ ] Publicar todo el código fuente de Android
+- [ ] Reconstruir un proyecto Kotlin limpio y compilable a partir de la referencia descompilada
 - [ ] Historial de salidas y estadísticas por salida
 - [ ] Exportar salidas (GPX)
 - [ ] Más unidades, temas e idiomas
