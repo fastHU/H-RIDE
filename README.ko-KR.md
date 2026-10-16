@@ -183,6 +183,8 @@ SHA-256도 위에 공개되어 있으니 직접 검증할 수 있습니다.
 
 <div align="center">
   <br>
+  <img src="assets/icon.png" alt="H RIDE" width="72">
+  <br><br>
   <a href="https://star-history.com/#fastHU/Core&Date">
     <img src="https://api.star-history.com/svg?repos=fastHU/Core&type=Date" alt="Star history" width="600">
   </a>

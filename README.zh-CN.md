@@ -183,6 +183,8 @@ Android 7.0 (API 24) 及以上，32 位与 64 位设备均可。
 
 <div align="center">
   <br>
+  <img src="assets/icon.png" alt="H RIDE" width="72">
+  <br><br>
   <a href="https://star-history.com/#fastHU/Core&Date">
     <img src="https://api.star-history.com/svg?repos=fastHU/Core&type=Date" alt="Star history" width="600">
   </a>
