@@ -18,7 +18,7 @@ Complete native rewrite in pure Kotlin & Jetpack Compose with Apple-grade fluid 
 - **Dual-Engine Mapping**: Seamless toggle between vector OpenStreetMap terrain and high-resolution ArcGIS World Imagery satellite photography with resilient offline caching.
 - **Smart Directional Puck**: Live orientation heading arrow, speed-reactive pulse wave, and GPS accuracy ring.
 - **Advanced Dynamic Cockpit**: Speedometer dial with gradient arc, elevation profile chart with climb percentage, and live multi-axis G-Force acceleration radar.
-- **Tire Pressure Science Calculator**: Optimal front/rear PSI & Bar computation based on rider weight, bike type, rim inner width, tire size, and road surface conditions.
+- **Tire Pressure Science Calculator**: Optimal front/rear PSI & Bar computation based on rider weight, bike weight, tire width, casing type, and terrain/road conditions.
 - **Comprehensive Theme Engine & Pro HEX/RGB Color Picker**: Deep Space Dark, Obsidian Carbon, Titanium Grey, Racing Green, Alpine White, Midnight Blue, plus live custom HEX and RGB slider controls.
 - **Interactive Photo Background Cropper**: 2D gesture pinch-to-zoom and pan cropper for personalized profile covers, with 3-second long-press reset safety confirmation.
 - **Ride History & Telemetry Logs**: Detailed trip logging, total climb, average and maximum velocity records.
@@ -33,7 +33,9 @@ Complete native rewrite in pure Kotlin & Jetpack Compose with Apple-grade fluid 
 ### Notes
 
 - Android 8.0 (API 26) or newer (Target SDK 34).
-- Release APK: `H-RIDE-v7.7.apk` (SHA-256: `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2`).
+- APK: `H_RIDE.apk` (SHA-256: `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2`).
+- The v7.7.0 APK is signed with the standard Android debug key (`CN=Android Debug`) and is marked `debuggable`; it is intended for sideloading and testing, not as a Play Store production build.
+- Application ID changed from `com.aistudio.summitpath.mtb` (v1.0.0) to `com.liquidvelo.app` (v7.7.0). Both versions install side by side, but ride data is not migrated automatically.
 
 ## [1.0.0] — 2026-10-16
 
@@ -57,5 +59,5 @@ First public release. 🎉
 - Signed with the H RIDE release key (certificate SHA-256
   `d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`).
 
-[7.7.0]: https://github.com/fastHU/H-RIDE/releases/tag/v7.7
+[7.7.0]: https://github.com/fastHU/H-RIDE/releases/tag/v7.7.0
 [1.0.0]: https://github.com/fastHU/H-RIDE/releases/tag/v1.0.0

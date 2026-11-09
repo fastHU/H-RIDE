@@ -33,7 +33,7 @@
 
 ## 👋 What is H RIDE?
 
-**H RIDE** turns your Android phone into an aero cycling computer and ride tracking powerhouse. Mount it on your handlebar or stem, tap start, and get instant, glanceable telemetry on everything that counts — speed, acceleration G-force, real-time elevation profile, cadence, and dual-layer satellite mapping.
+**H RIDE** turns your Android phone into an aero cycling computer and ride tracking powerhouse. Mount it on your handlebar or stem, tap start, and get instant, glanceable telemetry on everything that counts — speed, acceleration G-force, real-time elevation profile, and dual-layer satellite mapping.
 
 Engineered with a **restrained, anti-glare aesthetic** that avoids garish fluorescent "AI" palettes, H RIDE ensures crystal-clear outdoor legibility under scorching direct sunlight or pitch-black night rides.
 
@@ -43,7 +43,9 @@ No mandatory cloud accounts. No subscriptions. No privacy tracking. Just install
   <img src="assets/app-preview.png" alt="H RIDE Preview" width="100%" style="border-radius: 12px; margin: 16px 0;">
 </div>
 
-> **Notice for v7.7+** — Starting with version **v7.7**, H RIDE is a **100% open-source, compilable Android Studio project** written natively in pure Kotlin and Jetpack Compose (`app/`). The legacy decompiled bytecode from v1.0.0 is preserved in [`decompiled/`](decompiled/) for historical reference.
+> **Notice for v7.7.0+** — Starting with version **v7.7.0**, H RIDE is a **100% open-source, compilable Android Studio project** written natively in pure Kotlin and Jetpack Compose (`app/`). The legacy decompiled bytecode from v1.0.0 is preserved in [`decompiled/`](decompiled/) for historical reference.
+
+> **UI language:** the current build ships with a Simplified Chinese interface. English localization is on the roadmap.
 
 ---
 
@@ -57,7 +59,7 @@ No mandatory cloud accounts. No subscriptions. No privacy tracking. Just install
 | 🛰️ | **Dual-Engine Mapping** | Seamless toggle between OpenStreetMap vector terrain and high-definition ArcGIS World Imagery satellite photography with offline disk caching. |
 | 🧭 | **Smart Directional Puck** | Orientation heading arrow, speed-reactive pulse wave, and GPS accuracy halo indicator. |
 | ⛰️ | **Live Elevation Profile** | Dynamic altitude graph displaying ascent/descent curves, gradient slope percentage, and cumulative climbing. |
-| 🔧 | **Tire Pressure Calculator** | Scientific front and rear tire pressure calculation (PSI &amp; Bar) based on rider weight, bike type, rim inner width, and road conditions. |
+| 🔧 | **Tire Pressure Calculator** | Scientific front and rear tire pressure calculation (PSI &amp; Bar) based on rider weight, bike weight, tire width, casing type, and terrain/road conditions. |
 | 🎨 | **Anti-Glare Palette &amp; HEX Picker** | Curated outdoor palettes (Deep Space Dark, Obsidian Carbon, Racing Green, etc.) plus exact 6-character HEX code input and RGB sliders. |
 | 🖼️ | **Custom Cover Cropper** | Full 2D gesture photo cropper (pinch zoom, drag pan) for personalized profile backgrounds with a 3-second long-press reset guard. |
 | 📊 | **Ride History &amp; Stats** | Comprehensive activity tracking, total elevation gain, average/max speeds, and session logs. |
@@ -94,6 +96,8 @@ H-RIDE/
 ├── decompiled/                            # Historical legacy v1.0.0 reference archive
 ├── build.gradle.kts                       # Root build configuration
 ├── settings.gradle.kts                    # Gradle project settings
+├── gradlew / gradlew.bat                  # Gradle wrapper scripts
+├── gradle/wrapper/                        # Wrapper JAR & distribution config
 └── README.md
 ```
 
@@ -101,12 +105,16 @@ H-RIDE/
 
 ## 📥 Download &amp; Verification
 
-Official release builds are available on the [Releases page](https://github.com/fastHU/H-RIDE/releases).
+Release builds are available on the [Releases page](https://github.com/fastHU/H-RIDE/releases).
 
 | Version | File | Size | SHA-256 |
 |---|---|---|---|
-| **v7.7** (Latest) | `H_RIDE.apk` | ~15.3 MB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
-| **v1.0.0** (Legacy) | `H-RIDE-v1.0.0.apk` | ~15.7 MB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+| **v7.7.0** (Latest) | `H_RIDE.apk` | ~15.3 MiB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
+| **v1.0.0** (Legacy) | `H-RIDE-v1.0.0.apk` | ~17.1 MiB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+
+> **Signing note:** the v7.7.0 APK is signed with the standard Android debug key (`CN=Android Debug`) and is marked `debuggable`. It is intended for sideloading and testing, not as a Play Store production build. The v1.0.0 APK was signed with the original H RIDE release key (certificate SHA-256 `d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`).
+
+> **Upgrading from v1.0.0:** v7.7.0 uses the application ID `com.liquidvelo.app`; v1.0.0 used `com.aistudio.summitpath.mtb`. Both versions can be installed side by side, but ride data is not migrated automatically.
 
 ### Verify Checksum
 ```bash
@@ -127,6 +135,9 @@ Get-FileHash H_RIDE.apk -Algorithm SHA256
 - **Target SDK**: Android 14 (API 34) · **Min SDK**: Android 8.0 (API 26)
 
 ### Build From Source
+
+The repository includes the Gradle wrapper (Gradle 8.2); the first run downloads the distribution automatically.
+
 ```bash
 git clone https://github.com/fastHU/H-RIDE.git
 cd H-RIDE
@@ -151,19 +162,26 @@ adb install -r H_RIDE.apk
 | `POST_NOTIFICATIONS` | Displays the persistent system tracking notification required by Android. |
 | `INTERNET` / `ACCESS_NETWORK_STATE` | Fetches OpenStreetMap and ArcGIS satellite map tiles. |
 | Motion Sensors | Live G-force and cornering acceleration from the hardware accelerometer. |
+| `HIGH_SAMPLING_RATE_SENSORS` | High-rate motion sampling for the live G-force radar. |
+| `WAKE_LOCK` | Keeps the CPU awake during long ride recordings. |
+| `VIBRATE` | Haptic feedback for controls and alerts. |
+| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | Lets the app ask to be exempted from aggressive battery savers during long rides. |
+| `READ_MEDIA_IMAGES` / `READ_MEDIA_VIDEO` | Lets you pick and crop a profile cover photo (Android 13+). |
 
 ---
 
 ## 🗺️ Roadmap
 
 - [x] First public release (`v1.0.0`)
-- [x] Full Kotlin &amp; Jetpack Compose rewrite with compilable source (`v7.7`)
+- [x] Full Kotlin &amp; Jetpack Compose rewrite with compilable source (`v7.7.0`)
 - [x] Apple-grade fluid Dock bar with gesture dragging &amp; spring physics
 - [x] ArcGIS satellite imagery &amp; OSM vector dual mapping
 - [x] Live elevation chart &amp; slope percentage display
 - [x] Ride history logs &amp; activity metrics
 - [x] Professional tire pressure calculator
 - [x] Curated anti-glare color palettes &amp; custom HEX picker
+- [ ] English UI localization
+- [ ] Reproducible release-signed builds / CI
 - [ ] GPX track export &amp; import
 - [ ] Bluetooth LE cadence &amp; heart rate sensor pairing
 

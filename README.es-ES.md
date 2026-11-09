@@ -5,8 +5,8 @@
 <h1 align="center">H RIDE</h1>
 
 <p align="center">
-  <b>Un ciclocomputador de bolsillo para Android.</b><br>
-  Velocidad en tiempo real · fuerza G en tiempo real · velocidad media y máxima · altitud · distancia recorrida
+  <b>Ciclocomputador aero de nueva generación y compañero de seguimiento para Android.</b><br>
+  Dock fluido estilo Apple · velocidad y fuerza G en tiempo real · mapas satelitales duales · perfil de elevación · calculadora de presión de neumáticos
 </p>
 
 <p align="center">
@@ -14,9 +14,8 @@
   <a href="https://github.com/fastHU/H-RIDE/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/H-RIDE/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
-  <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
-  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
-  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
+  <img alt="Platform" src="https://img.shields.io/badge/Android-8.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="app/"><img alt="Code" src="https://img.shields.io/badge/Kotlin-Jetpack_Compose-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=kotlin&logoColor=white"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -34,186 +33,74 @@
 
 ## 👋 ¿Qué es H RIDE?
 
-**H RIDE** convierte tu teléfono en un ciclocomputador. Móntalo en el manillar, pulsa iniciar y
-registrará lo que de verdad importa en una salida: a qué velocidad vas, con cuánta fuerza aceleras y
-cuánto desnivel has subido, y te lo mostrará en una interfaz limpia, legible de un vistazo y de alto
-contraste que puedes interpretar en un segundo mientras pedaleas.
+**H RIDE** convierte tu teléfono Android en un ciclocomputador aero y una herramienta completa de seguimiento de rutas. Montado en el manillar o la potencia, ofrece datos instantáneos y legibles: velocidad, fuerza G, perfil de elevación en tiempo real y mapas satelitales de doble capa.
 
-Sin cuenta. Sin registro. Sin suscripción. Solo tienes que instalar el APK y salir a rodar.
+La interfaz evita los colores fluorescentes habituales y está pensada para leerse con claridad bajo el sol directo o de noche. Sin cuentas obligatorias, suscripciones ni rastreo de privacidad.
 
-> **Sobre este repositorio** — `H-RIDE` es el repositorio oficial de H RIDE: compilaciones firmadas,
-> la [referencia del código recuperada del APK](decompiled/), notas de versión y documentación.
-> Todas las compilaciones se firman con la misma clave, así que las actualizaciones se instalan encima.
+<div align="center">
+  <img src="assets/app-preview.png" alt="Vista previa de H RIDE" width="100%">
+</div>
+
+> **Aviso para v7.7.0+** — Desde **v7.7.0**, H RIDE es un proyecto Android Studio 100 % open source y compilable, escrito en Kotlin puro y Jetpack Compose (`app/`). El código descompilado de v1.0.0 se conserva en [`decompiled/`](decompiled/) como referencia histórica.
+
+> **Idioma de la interfaz:** la versión actual tiene la interfaz en chino simplificado. La localización al español está en la hoja de ruta.
+
+---
 
 ## ✨ Funciones
 
 | | Función | Descripción |
 |:--:|---|---|
-| ⚡ | **Velocidad en tiempo real** | Lectura de velocidad en vivo, actualizada de forma continua desde el GPS, en km/h o mph. |
-| 🌀 | **Fuerza G en tiempo real** | Carga de aceleración en vivo a partir de los sensores de movimiento del dispositivo, para que veas con cuánta fuerza frenas, tomas las curvas y esprintas. |
-| 📊 | **Velocidad media** | Media en movimiento de toda la salida, actualizada sobre la marcha. |
-| 🏁 | **Velocidad máxima** | El punto más rápido de tu salida, registrado automáticamente. |
-| ⛰️ | **Altitud** | Altitud actual y desnivel acumulado, para que sepas siempre cuánta montaña queda. |
-| 📏 | **Distancia y duración** | Distancia total de la salida y tiempo transcurrido, sincronizados con la sesión de grabación. |
-| 🗺️ | **Mapa topográfico** | Vista de mapa en vivo con capas de teselas topográficas y de terreno (OpenTopoMap, Thunderforest, USGS): pensado para senderos, no solo para calles de ciudad. |
-| 🌙 | **Grabación en segundo plano** | Un servicio en primer plano mantiene la grabación de la salida aunque apagues la pantalla o cambies de aplicación. |
-| 🎨 | **Hecho con Jetpack Compose** | Una interfaz de Android nativa, moderna y fluida. |
+| 🍏 | **Dock fluido estilo Apple** | Navegación inferior con física de resorte y gestos de arrastre. |
+| ⚡ | **Velocímetro en tiempo real** | Velocidad, promedio y máxima en km/h con arco degradado. |
+| 🌀 | **Radar de fuerza G** | Aceleración y carga en curvas a partir de los sensores del dispositivo. |
+| 🛰️ | **Mapas de doble motor** | OpenStreetMap vectorial y ArcGIS World Imagery con caché fuera de línea. |
+| ⛰️ | **Perfil de elevación en vivo** | Curva de altitud, pendiente y desnivel acumulado. |
+| 🔧 | **Calculadora de presión** | PSI y bar para delantera y trasera según peso del ciclista y de la bici, ancho de neumático, carcasa y terreno. |
+| 📊 | **Historial y estadísticas** | Registro de rutas, desnivel, velocidades media y máxima. |
+| 🌙 | **Servicio en primer plano** | Grabación continua con la pantalla apagada o la app en segundo plano. |
 
-## 📂 Código fuente
-
-El código de la app se incluye en este repositorio, en [`decompiled/`](decompiled/) — recuperado del
-APK oficial con [jadx](https://github.com/skylot/jadx). La compilación de release solo se minimizó,
-**no se ofuscó**, así que se conservan los nombres reales de clases, campos y métodos y toda la
-arquitectura es legible.
-
-| Ruta | Contenido |
-|---|---|
-| [`data/db`](decompiled/sources/com/example/data/db) | Base de datos Room — entidad de ruta, DAO, repositorio, puntos de traza |
-| [`data/service`](decompiled/sources/com/example/data/service) | Servicio en primer plano de grabación y gestor de estadísticas en vivo |
-| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Pantallas Compose — inicio, grabación, historial, detalle |
-| [`ui/map`](decompiled/sources/com/example/ui/map) | Vista de mapa osmdroid, fuentes de teselas, cambio de modo |
-| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | Modelos de navegación e interfaz de ruta |
-| [`ui/theme`](decompiled/sources/com/example/ui/theme) | Tema y componentes de glassmorphism |
-| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | Manifiesto decodificado |
-
-> La referencia es Java generado: los nombres y la estructura son reales, pero la sintaxis de Kotlin,
-> los comentarios y las construcciones de Compose no se recuperan, y no compila tal cual. Léelo como
-> el mapa de la app — consulta [cómo se generó](decompiled/README.md).
+---
 
 ## 📥 Descarga
 
-Consigue el APK más reciente en la página de [**Releases**](https://github.com/fastHU/H-RIDE/releases/latest).
+| Versión | Archivo | Tamaño | SHA-256 |
+|---|---|---|---|
+| **v7.7.0** (última) | `H_RIDE.apk` | ~15,3 MiB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
+| **v1.0.0** (legado) | `H-RIDE-v1.0.0.apk` | ~17,1 MiB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
 
-| Versión | Archivo | Tamaño | Requiere | SHA-256 |
-|---|---|---|---|---|
-| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/H-RIDE/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+> **Firma:** el APK v7.7.0 está firmado con la clave de depuración estándar de Android (`CN=Android Debug`) y marcado como `debuggable`. Está pensado para instalación manual y pruebas, no como una compilación de producción para la tienda. El APK v1.0.0 se firmó con la clave de publicación original de H RIDE.
 
-Verifica tu descarga antes de instalar:
+> **Actualización desde v1.0.0:** v7.7.0 usa el ID de aplicación `com.liquidvelo.app`; v1.0.0 usaba `com.aistudio.summitpath.mtb`. Ambas versiones pueden convivir, pero los datos de rutas no se migran automáticamente.
 
-```bash
-# macOS / Linux
-shasum -a 256 H-RIDE-v1.0.0.apk
+---
 
-# Windows (PowerShell)
-Get-FileHash .\H-RIDE-v1.0.0.apk -Algorithm SHA256
-```
+## 🚀 Compilación
 
-El hash que se muestre debe coincidir con el SHA-256 de arriba. Si no coincide, borra el archivo y vuelve a descargarlo.
-
-## 🚀 Instalación
-
-1. Descarga `H-RIDE-v1.0.0.apk` en tu teléfono.
-2. Ábrelo. Android te pedirá que permitas instalar aplicaciones desde esta fuente: concédelo
-   (*Ajustes → Aplicaciones → Acceso especial → Instalar aplicaciones desconocidas*).
-3. Instálalo, abre H RIDE y concede el permiso de ubicación cuando te lo pida.
-4. Monta el teléfono, pulsa iniciar y a rodar.
-
-<details>
-<summary>Instalar con ADB en su lugar</summary>
+Requisitos: Android Studio Hedgehog o superior, JDK 17, compileSdk 34 y minSdk 26. El repositorio incluye el Gradle wrapper (Gradle 8.2).
 
 ```bash
-adb install -r H-RIDE-v1.0.0.apk
+git clone https://github.com/fastHU/H-RIDE.git
+cd H-RIDE
+./gradlew assembleRelease
 ```
-</details>
 
-**ABIs compatibles:** `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64` — el APK incluye las cuatro, así que
-funciona prácticamente en cualquier teléfono y tableta Android.
+---
 
 ## 🔐 Permisos y privacidad
 
-H RIDE pide exactamente lo que necesita un ciclocomputador, y nada más:
+La app solicita ubicación precisa y aproximada, servicio en primer plano con ubicación, notificaciones, acceso a red para los mapas, sensores de movimiento, wake lock, vibración y lectura de imágenes/vídeo para la portada del perfil. No hay cuentas ni servidores propios; los datos de las rutas se guardan en el dispositivo.
 
-| Permiso | Por qué es necesario |
-|---|---|
-| `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` | La velocidad, la distancia, la altitud y el mapa se obtienen de tu posición GPS. |
-| `FOREGROUND_SERVICE` / `FOREGROUND_SERVICE_LOCATION` | Mantiene la grabación de la salida mientras la pantalla está apagada o usas otra aplicación, con una notificación permanente. |
-| `POST_NOTIFICATIONS` | Muestra la notificación de grabación que Android exige para la ubicación en segundo plano. |
-| `INTERNET` / `ACCESS_NETWORK_STATE` / `ACCESS_WIFI_STATE` | Descarga las teselas del mapa para la vista de mapa. |
-| Sensores de movimiento | La fuerza G en tiempo real se lee del acelerómetro del dispositivo. |
-
-**Privacidad en resumen:** no hay cuenta ni servidor de H RIDE. Las estadísticas de tus salidas se
-calculan en el propio dispositivo. Las teselas del mapa se solicitan a proveedores públicos de
-teselas (OpenTopoMap, Thunderforest, USGS, OpenStreetMap), que ven tu dirección IP como cualquier
-mapa en línea. El APK también incluye las bibliotecas estándar de Google Play Services / Firebase;
-puedes auditar tú mismo la lista completa de permisos con `aapt2 dump badging H-RIDE-v1.0.0.apk`.
-
-## 🧱 Creado con
-
-- **Kotlin** + **Jetpack Compose** para la interfaz
-- **osmdroid** con capas de teselas topográficas para el mapa
-- Las **API de ubicación** de Android y un **servicio en primer plano** para una grabación fiable de las salidas
-- Target SDK 36 · Min SDK 24
-
-## ❓ Preguntas frecuentes
-
-<details>
-<summary><b>¿H RIDE está en Google Play?</b></summary>
-
-Todavía no: aquí se distribuye como un APK firmado. Las versiones publicadas en GitHub son las compilaciones oficiales.
-</details>
-
-<details>
-<summary><b>¿Qué versiones de Android son compatibles?</b></summary>
-
-Android 7.0 (API 24) y posteriores, tanto en dispositivos de 32 bits como de 64 bits.
-</details>
-
-<details>
-<summary><b>¿Por qué Android me avisa al instalar el APK?</b></summary>
-
-Toda aplicación instalada fuera de Play Store activa ese aviso. El APK está firmado con una clave de
-publicación coherente (certificado SHA-256
-`d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`) y el SHA-256 del archivo se
-publica más arriba para que puedas verificarlo.
-</details>
-
-<details>
-<summary><b>¿Se incluye el código fuente original en Kotlin?</b></summary>
-
-El proyecto Kotlin original no se conservó, así que este repositorio publica el
-[código recuperado del APK oficial](decompiled/). Los nombres reales de clases, campos y métodos están
-intactos y toda la arquitectura es legible, pero es Java generado y no compila tal cual.
-Consulta [`decompiled/README.md`](decompiled/README.md).
-</details>
-
-## 🗺️ Hoja de ruta
-
-- [x] Primera versión pública (`v1.0.0`)
-- [x] Publicar el código de la app ([referencia en `decompiled/`](decompiled/))
-- [ ] Reescribir un proyecto Kotlin limpio y compilable a partir de la referencia
-- [ ] Historial de salidas y estadísticas por salida
-- [ ] Exportar salidas (GPX)
-- [ ] Más unidades, temas e idiomas
-
-Las ideas y los informes de errores son bienvenidos en [Issues](https://github.com/fastHU/H-RIDE/issues).
-
-## 🤝 Contribuir
-
-- 🐞 ¿Has encontrado un error? [Abre una incidencia](https://github.com/fastHU/H-RIDE/issues/new) con el modelo de tu teléfono,
-  la versión de Android y lo que ocurrió.
-- 💡 ¿Tienes una idea? Inicia un debate en una incidencia: las peticiones de funciones dan forma a la hoja de ruta.
-- 🌍 Las traducciones de este README son bienvenidas: copia `README.md`, tradúcelo y abre una pull request.
-- ⭐ Si H RIDE te resulta útil, una estrella ayuda a que otros ciclistas lo descubran.
+---
 
 ## 📄 Licencia
 
-Publicado bajo la [Licencia MIT](LICENSE) © 2026 fastHU.
+Publicado bajo la [licencia MIT](LICENSE) © 2026 fastHU.
 
-## 🙏 Agradecimientos
-
-- Colaboradores de [OpenStreetMap](https://www.openstreetmap.org/) — los datos del mapa
-- [OpenTopoMap](https://opentopomap.org/), [Thunderforest](https://www.thunderforest.com/) y
-  [USGS](https://www.usgs.gov/) — las capas de teselas topográficas
-- [osmdroid](https://github.com/osmdroid/osmdroid) — el motor de mapas
-- [Jetpack Compose](https://developer.android.com/compose) — el conjunto de herramientas de interfaz
+---
 
 <div align="center">
-  <br>
   <img src="assets/icon.png" alt="H RIDE" width="72">
   <br><br>
-  <a href="https://star-history.com/#fastHU/H-RIDE&Date">
-    <img src="https://api.star-history.com/svg?repos=fastHU/H-RIDE&type=Date" alt="Star history" width="600">
-  </a>
-  <br><br>
-  <sub>Hecho para ciclistas, por un ciclista. 🚵</sub>
+  <sub>Hecho por ciclistas, para ciclistas. 🚴‍♂️💨</sub>
 </div>

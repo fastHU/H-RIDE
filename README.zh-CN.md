@@ -43,7 +43,9 @@
   <img src="assets/app-preview.png" alt="H RIDE 界面效果" width="100%" style="border-radius: 12px; margin: 16px 0;">
 </div>
 
-> **v7.7+ 版本重要说明** — 从 **v7.7** 版本开始，H RIDE 已全量升级为**原生可编译的纯 Kotlin + Jetpack Compose 源码工程**（位于 `app/` 根目录）。历史版本从 APK 反编译的代码已归档至 [`decompiled/`](decompiled/) 供参考。
+> **v7.7.0+ 版本重要说明** — 从 **v7.7.0** 版本开始，H RIDE 已全量升级为**原生可编译的纯 Kotlin + Jetpack Compose 源码工程**（位于 `app/` 根目录）。历史版本从 APK 反编译的代码已归档至 [`decompiled/`](decompiled/) 供参考。
+
+> **界面语言：** 当前安装包为简体中文界面，英文界面已在计划中。
 
 ---
 
@@ -57,7 +59,7 @@
 | 🛰️ | **双模地图引擎** | 一键平滑切换 OpenStreetMap 矢量地貌与 ArcGIS 高清卫星实景航拍，支持断网离线瓦片缓存。 |
 | 🧭 | **动态航向光标** | 集成物理航向三角箭头、速度呼吸脉冲波与 GPS 定位精度光晕。 |
 | ⛰️ | **实时海拔剖面图** | 动态绘制骑行海拔曲线，实时显示坡度百分比与累计爬升/下降米数。 |
-| 🔧 | **科学胎压计算器** | 综合骑手体重、整车重量、轮胎宽度（25c - 45c）、轮圈内宽及干燥/潮湿路况，智能推导前后轮最佳 PSI 与 Bar 气压。 |
+| 🔧 | **科学胎压计算器** | 综合骑手体重、整车重量、轮胎宽度（25c - 45c）、胎体类型及地形/路况，智能推导前后轮最佳 PSI 与 Bar 气压。 |
 | 🎨 | **抗反光调色板与 HEX 取色器** | 预置深空暗黑、曜石碳黑、赛车绿、高山白等经典色板，支持直接输入 6 位十六进制色值或 RGB 滑块精细微调。 |
 | 🖼️ | **个性化封面自由裁剪** | 内置双指手势缩放和平移裁切画板，随心定制个人背景；提供 3 秒长按重置防护。 |
 | 📊 | **骑行历史与数据复盘** | 完整保存历次骑行活动日志、总爬升、平均与极速数据。 |
@@ -94,6 +96,8 @@ H-RIDE/
 ├── decompiled/                            # 历史 v1.0.0 反编译参考归档
 ├── build.gradle.kts                       # 根构建脚本
 ├── settings.gradle.kts                    # Gradle 项目配置
+├── gradlew / gradlew.bat                  # Gradle Wrapper 启动脚本
+├── gradle/wrapper/                        # Wrapper JAR 与发行版配置
 └── README.zh-CN.md
 ```
 
@@ -101,12 +105,16 @@ H-RIDE/
 
 ## 📥 安装包下载与校验
 
-官方签名安装包可在 [GitHub Releases 页面](https://github.com/fastHU/H-RIDE/releases) 下载。
+安装包可在 [GitHub Releases 页面](https://github.com/fastHU/H-RIDE/releases) 下载。
 
 | 版本 | 文件名 | 体积 | SHA-256 校验码 |
 |---|---|---|---|
-| **v7.7** (最新版) | `H_RIDE.apk` | ~15.3 MB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
-| **v1.0.0** (历史版) | `H-RIDE-v1.0.0.apk` | ~15.7 MB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+| **v7.7.0** (最新版) | `H_RIDE.apk` | ~15.3 MiB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
+| **v1.0.0** (历史版) | `H-RIDE-v1.0.0.apk` | ~17.1 MiB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+
+> **签名说明：** v7.7.0 安装包使用 Android 标准调试密钥签名（`CN=Android Debug`），并标记为 `debuggable`。它适用于侧载与测试，不是应用商店的生产签名包。v1.0.0 使用原 H RIDE 发布密钥签名（证书 SHA-256 `d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`）。
+
+> **从 v1.0.0 升级：** v7.7.0 使用应用 ID `com.liquidvelo.app`，v1.0.0 使用 `com.aistudio.summitpath.mtb`。两个版本可以并存安装，但骑行数据不会自动迁移。
 
 ### 校验文件哈希
 ```bash
@@ -127,6 +135,9 @@ Get-FileHash H_RIDE.apk -Algorithm SHA256
 - **Target SDK**：API 34 · **Min SDK**：API 26 (Android 8.0+)
 
 ### 从源码编译 Release 安装包
+
+仓库已包含 Gradle Wrapper（Gradle 8.2），首次运行会自动下载对应发行版。
+
 ```bash
 git clone https://github.com/fastHU/H-RIDE.git
 cd H-RIDE
@@ -151,19 +162,26 @@ adb install -r H_RIDE.apk
 | `POST_NOTIFICATIONS` | 遵循 Android 系统要求显示前台长驻通知。 |
 | `INTERNET` / `ACCESS_NETWORK_STATE` | 下载 OpenStreetMap 与 ArcGIS 高清卫星地图瓦片。 |
 | 运动传感器 (Accelerometer) | 读取骑行加减速及过弯 G 力过载。 |
+| `HIGH_SAMPLING_RATE_SENSORS` | 以高采样率读取运动传感器，驱动实时 G 力雷达。 |
+| `WAKE_LOCK` | 长时间记录骑行时保持 CPU 唤醒。 |
+| `VIBRATE` | 控件与提醒的触感反馈。 |
+| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | 申请忽略激进的后台省电策略，避免长距离骑行被系统中断。 |
+| `READ_MEDIA_IMAGES` / `READ_MEDIA_VIDEO` | 选择并裁剪个人资料封面（Android 13+）。 |
 
 ---
 
 ## 🗺️ 发展路线图 (Roadmap)
 
 - [x] 首次公开发布 (`v1.0.0`)
-- [x] 基于纯 Kotlin + Jetpack Compose 全量重构并开源原生工程 (`v7.7`)
+- [x] 基于纯 Kotlin + Jetpack Compose 全量重构并开源原生工程 (`v7.7.0`)
 - [x] 苹果级流体 Dock 栏与手势跟手阻尼拖动
 - [x] ArcGIS 卫星影像与 OSM 矢量双模地图
 - [x] 实时海拔升降图与动态坡度显示
 - [x] 骑行历史日志与数据统计
 - [x] 专业级胎压科学计算器
 - [x] 户外抗反光色系与自定义 HEX/RGB 色盘
+- [ ] 英文界面本地化
+- [ ] 可复现的发布签名构建 / CI
 - [ ] 导出骑行轨迹为标准 GPX 文件
 - [ ] 蓝牙低功耗 (BLE) 踏频与心率带传感器直连
 

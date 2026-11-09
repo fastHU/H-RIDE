@@ -5,8 +5,8 @@
 <h1 align="center">H RIDE</h1>
 
 <p align="center">
-  <b>Android のための、ポケットサイズのサイクルコンピューター。</b><br>
-  リアルタイム速度 · リアルタイム G フォース · 平均＆最高速度 · 標高 · 走行距離
+  <b>次世代エアロ・サイクルコンピューター＆Android向けトラッキング・コンパニオン。</b><br>
+  Apple級の流動Dock · リアルタイム速度とGフォース · デュアル衛星マップ · 標高プロファイル · タイヤ空気圧計算機
 </p>
 
 <p align="center">
@@ -14,9 +14,8 @@
   <a href="https://github.com/fastHU/H-RIDE/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/H-RIDE/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
-  <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
-  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
-  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
+  <img alt="Platform" src="https://img.shields.io/badge/Android-8.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="app/"><img alt="Code" src="https://img.shields.io/badge/Kotlin-Jetpack_Compose-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=kotlin&logoColor=white"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -32,187 +31,76 @@
 
 ---
 
-## 👋 H RIDE とは？
+## 👋 H RIDE とは
 
-**H RIDE** は、あなたのスマートフォンをサイクルコンピューターに変えます。ハンドルバーに取り付けてスタートを押せば、
-ライドで本当に大切なもの — どれくらいの速さで走っているか、どれくらい強く加速しているか、
-どれだけ登ったか — を記録し、走りながらでも一秒で読み取れる、クリーンで視認性の高い
-ハイコントラストなインターフェースで表示します。
+**H RIDE** は、Android スマートフォンをエアロ・サイクルコンピューター兼ライド追跡ツールに変えるアプリです。ハンドルバーやステムにマウントして開始するだけで、速度、Gフォース、リアルタイムの標高プロファイル、二層の衛星マップを一目で確認できます。
 
-アカウントは不要。サインアップも不要。サブスクリプションもありません。APK をインストールして、走るだけです。
+派手な蛍光色を避けた、直射日光下でも夜間でも読みやすいインターフェースを採用しています。必須のクラウドアカウント、サブスクリプション、プライバシー追跡はありません。
 
-> **このリポジトリについて** — `H-RIDE` は H RIDE の公式リポジトリです。署名済みビルド、
-> [APK から復元したソース参考](decompiled/)、リリースノート、ドキュメントを公開しています。
-> すべてのビルドは同じリリースキーで署名されているため、上書き更新できます。
+<div align="center">
+  <img src="assets/app-preview.png" alt="H RIDE の画面" width="100%">
+</div>
+
+> **v7.7.0 以降のお知らせ** — **v7.7.0** から、H RIDE は純粋な Kotlin と Jetpack Compose で書かれた**コンパイル可能なオープンソースの Android Studio プロジェクト**（`app/`）になりました。v1.0.0 の逆コンパイル済みコードは [`decompiled/`](decompiled/) に歴史的参考として保存されています。
+
+> **UI 言語：** 現在のビルドは簡体字中国語のインターフェースです。日本語化はロードマップに含まれています。
+
+---
 
 ## ✨ 機能
 
 | | 機能 | 説明 |
 |:--:|---|---|
-| ⚡ | **リアルタイム速度** | GPS から継続的に更新されるライブ速度表示。km/h または mph で表示します。 |
-| 🌀 | **リアルタイム G フォース** | 端末のモーションセンサーがとらえるライブの加速度負荷。ブレーキ、コーナリング、スプリントの強さがひと目でわかります。 |
-| 📊 | **平均速度** | ライド全体の移動平均を、走りながら随時更新します。 |
-| 🏁 | **最高速度** | ライド中の最速ポイントを自動で記録します。 |
-| ⛰️ | **標高** | 現在の標高と獲得標高を表示するので、山がどれだけ残っているかが常にわかります。 |
-| 📏 | **距離＆時間** | 総走行距離と経過時間を、記録セッションと同期して表示します。 |
-| 🗺️ | **地形図** | 地形・テレインタイルレイヤー（OpenTopoMap、Thunderforest、USGS）を備えたライブマップ表示 — 市街地だけでなく、トレイルのために作られています。 |
-| 🌙 | **バックグラウンド記録** | フォアグラウンドサービスにより、画面オフやアプリ切り替え中でもライドを記録し続けます。 |
-| 🎨 | **Jetpack Compose で構築** | モダンで滑らかなネイティブ Android UI。 |
+| 🍏 | **Apple級の流動Dock** | バネ物理とドラッグ操作に対応した下部ナビゲーション。 |
+| ⚡ | **リアルタイム速度計** | 速度、平均、最高速を km/h で表示するグラデーション弧。 |
+| 🌀 | **Gフォース・レーダー** | 端末センサーによる加速とコーナリング荷重の可視化。 |
+| 🛰️ | **デュアルマップ** | OpenStreetMap のベクター地形と ArcGIS World Imagery をオフラインキャッシュ付きで切替。 |
+| ⛰️ | **ライブ標高プロファイル** | 高度曲線、勾配、累積獲得標高を表示。 |
+| 🔧 | **タイヤ空気圧計算機** | ライダー重量、車体重量、タイヤ幅、カーカス、路面状況から前後輪の PSI と bar を算出。 |
+| 📊 | **ライド履歴と統計** | ルートログ、獲得標高、平均・最高速度を記録。 |
+| 🌙 | **フォアグラウンド・サービス** | 画面オフやバックグラウンドでも記録を継続。 |
 
-## 📂 ソースコード
-
-アプリのコードは [`decompiled/`](decompiled/) に同梱されています —— 公式 APK から
-[jadx](https://github.com/skylot/jadx) で復元したものです。リリースビルドは圧縮のみで
-**難読化されていない**ため、実際のクラス名・フィールド名・メソッド名がそのまま残り、
-アーキテクチャ全体を読むことができます。
-
-| パス | 内容 |
-|---|---|
-| [`data/db`](decompiled/sources/com/example/data/db) | Room データベース —— ライド記録エンティティ、DAO、リポジトリ、トラックポイント |
-| [`data/service`](decompiled/sources/com/example/data/service) | フォアグラウンドのライド記録サービスとリアルタイム統計マネージャ |
-| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Compose 画面 —— ホーム、記録中、履歴、ライド詳細 |
-| [`ui/map`](decompiled/sources/com/example/ui/map) | osmdroid 地図ビュー、タイルソース、地図モード切替 |
-| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | ナビゲーションモデルとルート UI |
-| [`ui/theme`](decompiled/sources/com/example/ui/theme) | テーマとグラスモーフィズムのコンポーネント |
-| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | デコード済みマニフェスト |
-
-> この参考コードは生成された Java です。名前と構造は本物ですが、Kotlin の構文・コメント・
-> Compose の記法は復元できず、そのままではビルドできません。アプリの地図として読んでください ——
-> [生成方法と注意点](decompiled/README.md)。
+---
 
 ## 📥 ダウンロード
 
-最新の APK は [**Releases**](https://github.com/fastHU/H-RIDE/releases/latest) ページから入手してください。
+| バージョン | ファイル | サイズ | SHA-256 |
+|---|---|---|---|
+| **v7.7.0**（最新） | `H_RIDE.apk` | 約 15.3 MiB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
+| **v1.0.0**（旧版） | `H-RIDE-v1.0.0.apk` | 約 17.1 MiB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
 
-| バージョン | ファイル | サイズ | 必要条件 | SHA-256 |
-|---|---|---|---|---|
-| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/H-RIDE/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+> **署名について：** v7.7.0 の APK は Android 標準のデバッグキー（`CN=Android Debug`）で署名され、`debuggable` が有効です。サイドロードとテスト用であり、ストア配布用の本番署名ではありません。v1.0.0 は元の H RIDE リリースキーで署名されています。
 
-インストール前にダウンロードしたファイルを検証してください：
+> **v1.0.0 からのアップグレード：** v7.7.0 のアプリケーション ID は `com.liquidvelo.app`、v1.0.0 は `com.aistudio.summitpath.mtb` です。両バージョンは共存できますが、ライドデータは自動移行されません。
 
-```bash
-# macOS / Linux
-shasum -a 256 H-RIDE-v1.0.0.apk
+---
 
-# Windows (PowerShell)
-Get-FileHash .\H-RIDE-v1.0.0.apk -Algorithm SHA256
-```
+## 🚀 ビルド
 
-表示されたハッシュが上記の SHA-256 と一致していなければなりません。一致しない場合は、ファイルを削除してもう一度ダウンロードしてください。
-
-## 🚀 インストール
-
-1. スマートフォンで `H-RIDE-v1.0.0.apk` をダウンロードします。
-2. ファイルを開きます。この提供元からのアプリのインストールを許可するよう Android が求めてきますので、許可してください
-   (*設定 → アプリ → 特別なアクセス → 不明なアプリのインストール*)。
-3. インストールして H RIDE を開き、求められたら位置情報の権限を許可します。
-4. スマートフォンを取り付けて、スタートを押して、走りましょう。
-
-<details>
-<summary>代わりに ADB でインストールする</summary>
+必要なもの：Android Studio Hedgehog 以降、JDK 17、compileSdk 34、minSdk 26。リポジトリには Gradle wrapper（Gradle 8.2）が含まれています。
 
 ```bash
-adb install -r H-RIDE-v1.0.0.apk
+git clone https://github.com/fastHU/H-RIDE.git
+cd H-RIDE
+./gradlew assembleRelease
 ```
-</details>
 
-**対応 ABI：** `arm64-v8a`、`armeabi-v7a`、`x86`、`x86_64` — APK にはこの 4 つがすべて含まれているため、
-事実上すべての Android スマートフォンとタブレットで動作します。
+---
 
 ## 🔐 権限とプライバシー
 
-H RIDE が求めるのは、サイクルコンピューターに必要なものだけで、それ以上はありません：
+本アプリは、正確・概算の位置情報、位置情報付きフォアグラウンドサービス、通知、地図取得のためのネットワークアクセス、モーションセンサー、ウェイクロック、振動、プロフィールカバー用の画像・動画読み取り権限を要求します。独自のアカウントやサーバーはなく、ライドデータは端末内に保存されます。
 
-| 権限 | 必要な理由 |
-|---|---|
-| `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` | 速度、距離、標高、地図はすべて GPS の位置情報から算出されます。 |
-| `FOREGROUND_SERVICE` / `FOREGROUND_SERVICE_LOCATION` | 画面がオフのときや他のアプリを使っているときでも、常駐通知とともにライドの記録を続けます。 |
-| `POST_NOTIFICATIONS` | バックグラウンドでの位置情報利用のために Android が要求する、記録中の通知を表示します。 |
-| `INTERNET` / `ACCESS_NETWORK_STATE` / `ACCESS_WIFI_STATE` | マップ表示用の地図タイルを取得します。 |
-| モーションセンサー | リアルタイム G フォースは端末の加速度センサーから読み取ります。 |
-
-**プライバシーをひと言で：** アカウントも H RIDE のサーバーもありません。ライドの統計はすべて
-端末上で計算されます。地図タイルは公開タイルプロバイダー（OpenTopoMap、Thunderforest、
-USGS、OpenStreetMap）から取得するため、これらのサービスには他のオンライン地図と同様にあなたの IP アドレスが見えます。APK には
-標準的な Google Play 開発者サービス / Firebase ライブラリも同梱されています。権限の全リストは `aapt2 dump badging H-RIDE-v1.0.0.apk`
-でご自身で監査できます。
-
-## 🧱 使用技術
-
-- UI には **Kotlin** + **Jetpack Compose**
-- 地図には地形タイルレイヤー対応の **osmdroid**
-- 信頼性の高いライド記録のための Android **位置情報 API** と**フォアグラウンドサービス**
-- Target SDK 36 · Min SDK 24
-
-## ❓ よくある質問
-
-<details>
-<summary><b>H RIDE は Google Play にありますか？</b></summary>
-
-まだありません — ここで署名済み APK として配布しています。GitHub でのリリースが公式ビルドです。
-</details>
-
-<details>
-<summary><b>対応している Android のバージョンは？</b></summary>
-
-Android 7.0 (API 24) 以降で、32 ビット端末と 64 ビット端末の両方に対応しています。
-</details>
-
-<details>
-<summary><b>APK のインストール時に Android が警告を出すのはなぜですか？</b></summary>
-
-Play ストア以外からインストールするすべてのアプリで、この警告が表示されます。この APK は
-一貫したリリースキー（証明書 SHA-256
-`d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`）で署名されており、ファイルの SHA-256 は
-上記で公開しているので、ご自身で検証できます。
-</details>
-
-<details>
-<summary><b>元の Kotlin ソースは含まれていますか？</b></summary>
-
-元の Kotlin プロジェクトは残っていないため、本リポジトリでは[公式 APK から復元したコード](decompiled/)を
-公開しています。実際のクラス名・フィールド名・メソッド名はそのまま残り、アーキテクチャ全体を読めますが、
-生成された Java でありそのままではコンパイルできません。詳細は [`decompiled/README.md`](decompiled/README.md) をご覧ください。
-</details>
-
-## 🗺️ ロードマップ
-
-- [x] 初回公開リリース（`v1.0.0`）
-- [x] アプリのコードを公開（[`decompiled/`](decompiled/) のソース参考）
-- [ ] 参考コードを元に、クリーンでビルド可能な Kotlin プロジェクトを書き直す
-- [ ] ライド履歴とライドごとの統計
-- [ ] ライドのエクスポート（GPX）
-- [ ] 単位、テーマ、言語の追加
-
-アイデアやバグ報告は [Issues](https://github.com/fastHU/H-RIDE/issues) でお待ちしています。
-
-## 🤝 コントリビューション
-
-- 🐞 バグを見つけましたか？ お使いの端末モデル、Android のバージョン、発生した内容を添えて
-  [Issue を作成](https://github.com/fastHU/H-RIDE/issues/new)してください。
-- 💡 アイデアがありますか？ Issue でディスカッションを始めましょう — 機能リクエストがロードマップを形作ります。
-- 🌍 この README の翻訳を歓迎します：`README.md` をコピーして翻訳し、プルリクエストをお送りください。
-- ⭐ H RIDE がお役に立つなら、スターが他のライダーの目に留まる助けになります。
+---
 
 ## 📄 ライセンス
 
-[MIT License](LICENSE) のもとで公開されています © 2026 fastHU.
+[MIT License](LICENSE) の下で公開されています © 2026 fastHU。
 
-## 🙏 謝辞
-
-- [OpenStreetMap](https://www.openstreetmap.org/) のコントリビューター — 地図データ
-- [OpenTopoMap](https://opentopomap.org/)、[Thunderforest](https://www.thunderforest.com/)、
-  [USGS](https://www.usgs.gov/) — 地形タイルレイヤー
-- [osmdroid](https://github.com/osmdroid/osmdroid) — 地図エンジン
-- [Jetpack Compose](https://developer.android.com/compose) — UI ツールキット
+---
 
 <div align="center">
-  <br>
   <img src="assets/icon.png" alt="H RIDE" width="72">
   <br><br>
-  <a href="https://star-history.com/#fastHU/H-RIDE&Date">
-    <img src="https://api.star-history.com/svg?repos=fastHU/H-RIDE&type=Date" alt="Star history" width="600">
-  </a>
-  <br><br>
-  <sub>ライダーのために、ライダーが作りました。🚵</sub>
+  <sub>ライダーによって、ライダーのために。🚴‍♂️💨</sub>
 </div>
