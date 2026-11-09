@@ -5,8 +5,8 @@
 <h1 align="center">H RIDE</h1>
 
 <p align="center">
-  <b>装进口袋里的 Android 码表。</b><br>
-  实时速度 · 实时 G 力 · 平均与最高速度 · 海拔 · 骑行里程
+  <b>装进口袋里的新一代智能流体骑行码表与运动伴侣。</b><br>
+  苹果级流体 Dock · 实时速度与 G 力 · 双模高清卫星地图 · 海拔剖面图 · 科学胎压计算器
 </p>
 
 <p align="center">
@@ -14,9 +14,8 @@
   <a href="https://github.com/fastHU/H-RIDE/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/fastHU/H-RIDE/total?style=for-the-badge&label=Downloads&color=FFC400&labelColor=1A1A1A"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fastHU/H-RIDE?style=for-the-badge&label=License&color=FFC400&labelColor=1A1A1A"></a>
   <a href="https://github.com/fastHU/H-RIDE/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/fastHU/H-RIDE?style=for-the-badge&label=Stars&color=FFC400&labelColor=1A1A1A"></a>
-  <img alt="Platform" src="https://img.shields.io/badge/Android-7.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
-  <a href="decompiled/"><img alt="Code" src="https://img.shields.io/badge/code-source_reference-FFC400?style=for-the-badge&labelColor=1A1A1A"></a>
-  <a href="decompiled/"><img alt="Language" src="https://img.shields.io/github/languages/top/fastHU/H-RIDE?style=for-the-badge&label=Language&color=FFC400&labelColor=1A1A1A"></a>
+  <img alt="Platform" src="https://img.shields.io/badge/Android-8.0%2B-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=android&logoColor=white">
+  <a href="app/"><img alt="Code" src="https://img.shields.io/badge/Kotlin-Jetpack_Compose-FFC400?style=for-the-badge&labelColor=1A1A1A&logo=kotlin&logoColor=white"></a>
   <a href="https://github.com/fastHU/H-RIDE/issues"><img alt="Issues" src="https://img.shields.io/github/issues/fastHU/H-RIDE?style=for-the-badge&label=Issues&color=FFC400&labelColor=1A1A1A"></a>
 </p>
 
@@ -34,181 +33,150 @@
 
 ## 👋 H RIDE 是什么？
 
-**H RIDE** 把你的手机变成一台骑行码表。把它装在车把上，按下开始，
-它就会记录骑行中真正重要的数据——你骑得有多快、加得多猛、
-爬了多少坡——并用干净利落、一眼可读的高对比度界面呈现出来，
-让你在骑行途中只需扫一眼就能看清。
+**H RIDE** 是一款专为公路骑行、碎石越野与日常通勤打造的 Android 原生新一代智能骑行码表。把它固定在车把或把立上，轻触开始，就能以极具科技感与克制美学的高对比度界面，毫秒级呈现真正核心的骑行遥测数据——实时车速、过弯加速度负载、路段海拔升降波形、双模卫星实景以及科学胎压参考。
 
-无需账号，无需注册，无需订阅。装上 APK，直接上路。
+告别花哨杂乱、充满廉价荧光 AI 颜色的界面。H RIDE 采用经过烈日直射考验的高对比度抗反光调色系统，无论是正午高山公路下坡还是深夜刷街，都能一眼看清关键读数。
 
-> **关于本仓库** — `H-RIDE` 是 H RIDE 的官方仓库：签名安装包、[从 APK 恢复的代码参考](decompiled/)、
-> 发行说明与文档。所有版本使用同一把发布密钥签名，可覆盖安装升级。
+无需账号，无需注册，无需订阅。装上 APK，即刻启程。
 
-## ✨ 功能特性
+<div align="center">
+  <img src="assets/app-preview.png" alt="H RIDE 界面效果" width="100%" style="border-radius: 12px; margin: 16px 0;">
+</div>
+
+> **v7.7+ 版本重要说明** — 从 **v7.7** 版本开始，H RIDE 已全量升级为**原生可编译的纯 Kotlin + Jetpack Compose 源码工程**（位于 `app/` 根目录）。历史版本从 APK 反编译的代码已归档至 [`decompiled/`](decompiled/) 供参考。
+
+---
+
+## ✨ 核心功能与亮点
 
 | | 功能 | 说明 |
 |:--:|---|---|
-| ⚡ | **实时速度** | 基于 GPS 持续刷新的实时速度读数，支持 km/h 或 mph。 |
-| 🌀 | **实时 G 力** | 由设备运动传感器实时读取加速度负载，刹车、过弯、冲刺有多猛一目了然。 |
-| 📊 | **平均速度** | 全程移动平均值，随着骑行实时更新。 |
-| 🏁 | **最高速度** | 自动记录全程的速度峰值。 |
-| ⛰️ | **海拔** | 当前海拔与累计爬升，还剩多少山要爬心里有数。 |
-| 📏 | **距离与时长** | 本次骑行的总里程与用时，始终与记录会话保持同步。 |
-| 🗺️ | **地形图** | 可切换地形/地势瓦片图层的实时地图（OpenTopoMap、Thunderforest、USGS）——为越野而做，而不只是城市街道。 |
-| 🌙 | **后台记录** | 前台服务让骑行记录在熄屏或切换到其他应用时依然继续。 |
-| 🎨 | **基于 Jetpack Compose 打造** | 现代、顺滑的原生 Android 界面。 |
+| 🍏 | **苹果级流体 Dock 栏** | 智能形态切换导航栏，主图模式下收缩为精巧圆角药丸且四周等距对称；支持手指全局平滑拖拽跟手与弹性回弹。 |
+| ⚡ | **流体瞬时速度计** | 毫秒级 GPS 速度刷新，动效渐变圆弧，同时记录全程均速与最高极速（km/h）。 |
+| 🌀 | **实时 G 力雷达** | 硬件加速度传感器精准捕获过弯离心力、强力制动与冲刺爆发负荷。 |
+| 🛰️ | **双模地图引擎** | 一键平滑切换 OpenStreetMap 矢量地貌与 ArcGIS 高清卫星实景航拍，支持断网离线瓦片缓存。 |
+| 🧭 | **动态航向光标** | 集成物理航向三角箭头、速度呼吸脉冲波与 GPS 定位精度光晕。 |
+| ⛰️ | **实时海拔剖面图** | 动态绘制骑行海拔曲线，实时显示坡度百分比与累计爬升/下降米数。 |
+| 🔧 | **科学胎压计算器** | 综合骑手体重、整车重量、轮胎宽度（25c - 45c）、轮圈内宽及干燥/潮湿路况，智能推导前后轮最佳 PSI 与 Bar 气压。 |
+| 🎨 | **抗反光调色板与 HEX 取色器** | 预置深空暗黑、曜石碳黑、赛车绿、高山白等经典色板，支持直接输入 6 位十六进制色值或 RGB 滑块精细微调。 |
+| 🖼️ | **个性化封面自由裁剪** | 内置双指手势缩放和平移裁切画板，随心定制个人背景；提供 3 秒长按重置防护。 |
+| 📊 | **骑行历史与数据复盘** | 完整保存历次骑行活动日志、总爬升、平均与极速数据。 |
+| 🌙 | **前台常驻低功耗守护** | 采用系统级前台服务 (`CyclingTrackingService`)，锁屏及后台切出不掉线、防系统误杀。 |
 
-## 📂 源代码
+---
 
-本应用的代码随仓库一起提供，位于 [`decompiled/`](decompiled/) —— 由官方 APK 经
-[jadx](https://github.com/skylot/jadx) 恢复而来。发布版只做了压缩、**没有混淆**，因此真实的类名、
-字段名与方法名全部保留，整体架构可以直接阅读。
+## 📂 源代码与工程结构
 
-| 目录 | 内容 |
-|---|---|
-| [`data/db`](decompiled/sources/com/example/data/db) | Room 数据库 —— 骑行记录实体、DAO、仓库层、轨迹点 |
-| [`data/service`](decompiled/sources/com/example/data/service) | 前台骑行记录服务与实时数据管理器 |
-| [`ui/screens`](decompiled/sources/com/example/ui/screens) | Compose 界面 —— 首页、记录中、历史、骑行详情 |
-| [`ui/map`](decompiled/sources/com/example/ui/map) | osmdroid 地图视图、瓦片源、地图模式切换 |
-| [`ui/navigation`](decompiled/sources/com/example/ui/navigation) | 导航模型与路线界面 |
-| [`ui/theme`](decompiled/sources/com/example/ui/theme) | 主题与玻璃拟态组件 |
-| [`AndroidManifest.xml`](decompiled/AndroidManifest.xml) | 解码后的应用清单 |
+本项目采用现代 Android 架构规范，全部源码可直接在 Android Studio 中打开并一键编译：
 
-> 这份参考是生成的 Java 代码：命名与结构是真实的，但 Kotlin 语法、注释与 Compose 写法无法还原，
-> 且不能直接编译。请把它当作应用的地图来读 —— 详见[生成方式与说明](decompiled/README.md)。
+```
+H-RIDE/
+├── app/
+│   ├── build.gradle.kts                   # 模块依赖与 Android 14 (API 34) 配置
+│   ├── proguard-rules.pro                 # 混淆与优化规则
+│   └── src/main/
+│       ├── AndroidManifest.xml            # 前台服务与精确定位权限清单
+│       ├── java/com/liquidvelo/app/
+│       │   ├── MainActivity.kt            # 应用入口与全局 Compose 导航控制
+│       │   ├── data/                      # GPS 传感器驱动与数据仓库
+│       │   │   ├── LocationTrackingHelper.kt
+│       │   │   ├── RideRepository.kt
+│       │   │   └── SensorManagerHelper.kt
+│       │   ├── model/                     # 骑行数据与胎压计算模型
+│       │   ├── service/                   # 前台常驻骑行记录服务
+│       │   │   └── CyclingTrackingService.kt
+│       │   ├── theme/                     # 极简色彩引擎、玻璃拟态与排版
+│       │   └── ui/
+│       │       ├── components/            # 高阶交互组件（AppleDockBar, SpeedometerDial, ElevationChart 等）
+│       │       └── screens/               # MapScreen, RideActiveScreen, HistoryScreen, ToolsScreen, ProfileScreen
+│       └── res/                           # 矢量图标、主题配置与字符串资源
+├── assets/                                # 宣传横幅、预览图与品牌素材
+├── decompiled/                            # 历史 v1.0.0 反编译参考归档
+├── build.gradle.kts                       # 根构建脚本
+├── settings.gradle.kts                    # Gradle 项目配置
+└── README.zh-CN.md
+```
 
-## 📥 下载
+---
 
-前往 [**Releases**](https://github.com/fastHU/H-RIDE/releases/latest) 页面获取最新版 APK。
+## 📥 安装包下载与校验
 
-| 版本 | 文件 | 大小 | 系统要求 | SHA-256 |
-|---|---|---|---|---|
-| **v1.0.0** | [`H-RIDE-v1.0.0.apk`](https://github.com/fastHU/H-RIDE/releases/latest) | 17.1 MiB | Android 7.0+ (API 24) | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
+官方签名安装包可在 [GitHub Releases 页面](https://github.com/fastHU/H-RIDE/releases) 下载。
 
-安装前请先校验下载文件：
+| 版本 | 文件名 | 体积 | SHA-256 校验码 |
+|---|---|---|---|
+| **v7.7** (最新版) | `H_RIDE.apk` | ~15.3 MB | `824e2d64cc9b6083339b50d4da7b61443015ba0086a329eacee288c8c9bc70c2` |
+| **v1.0.0** (历史版) | `H-RIDE-v1.0.0.apk` | ~15.7 MB | `e8a5df497ba00f605bc6b3943e68b8ad10011dbb20457455a68214ec9bb34b76` |
 
+### 校验文件哈希
 ```bash
 # macOS / Linux
-shasum -a 256 H-RIDE-v1.0.0.apk
+shasum -a 256 H_RIDE.apk
 
-# Windows (PowerShell)
-Get-FileHash .\H-RIDE-v1.0.0.apk -Algorithm SHA256
+# Windows PowerShell
+Get-FileHash H_RIDE.apk -Algorithm SHA256
 ```
 
-输出的哈希值必须与上方的 SHA-256 完全一致。若不一致，请删除该文件并重新下载。
+---
 
-## 🚀 安装
+## 🚀 编译与运行
 
-1. 在手机上打开 `H-RIDE-v1.0.0.apk` 下载安装包。
-2. 打开它。Android 会询问是否允许从此来源安装应用——请允许
-   （*设置 → 应用 → 特殊权限 → 安装未知应用*）。
-3. 安装完成后打开 H RIDE，在弹出提示时授予定位权限。
-4. 装好手机，按下开始，出发。
+### 开发环境
+- **Android Studio**：Hedgehog (2023.1.1) 或更高版本
+- **JDK**：Java 17
+- **Target SDK**：API 34 · **Min SDK**：API 26 (Android 8.0+)
 
-<details>
-<summary>改用 ADB 安装</summary>
-
+### 从源码编译 Release 安装包
 ```bash
-adb install -r H-RIDE-v1.0.0.apk
+git clone https://github.com/fastHU/H-RIDE.git
+cd H-RIDE
+
+# 编译 Release APK
+./gradlew assembleRelease
 ```
-</details>
 
-**支持的 ABI：** `arm64-v8a`、`armeabi-v7a`、`x86`、`x86_64`——这个 APK 四种全都包含，
-因此几乎在任何 Android 手机和平板上都能运行。
+### 通过 ADB 安装
+```bash
+adb install -r H_RIDE.apk
+```
 
-## 🔐 权限与隐私
+---
 
-H RIDE 只申请骑行码表真正需要的权限，一项不多：
+## 🔐 权限与隐私说明
 
-| 权限 | 用途 |
+| 权限 | 用途说明 |
 |---|---|
-| `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` | 速度、距离、海拔与地图都来自你的 GPS 定位。 |
-| `FOREGROUND_SERVICE` / `FOREGROUND_SERVICE_LOCATION` | 在熄屏或使用其他应用时继续记录骑行，并显示常驻通知。 |
-| `POST_NOTIFICATIONS` | 显示 Android 对后台定位所要求的记录通知。 |
-| `INTERNET` / `ACCESS_NETWORK_STATE` / `ACCESS_WIFI_STATE` | 为地图视图获取地图瓦片。 |
-| 运动传感器 | 实时 G 力读取自设备的加速度计。 |
+| `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` | 获取毫秒级 GPS 瞬时车速、骑行总里程、海拔与航向角。 |
+| `FOREGROUND_SERVICE` / `FOREGROUND_SERVICE_LOCATION` | 确保锁屏或切换应用时持续稳定记录骑行轨迹，并在通知栏展示数据。 |
+| `POST_NOTIFICATIONS` | 遵循 Android 系统要求显示前台长驻通知。 |
+| `INTERNET` / `ACCESS_NETWORK_STATE` | 下载 OpenStreetMap 与 ArcGIS 高清卫星地图瓦片。 |
+| 运动传感器 (Accelerometer) | 读取骑行加减速及过弯 G 力过载。 |
 
-**隐私简述：** 没有账号，也没有 H RIDE 服务器。你的骑行数据全部在设备本地计算。
-地图瓦片由公共瓦片服务商（OpenTopoMap、Thunderforest、USGS、OpenStreetMap）提供，
-和任何在线地图一样，它们会看到你的 IP 地址。APK 同时打包了标准的 Google Play
-services / Firebase 库；你也可以用 `aapt2 dump badging H-RIDE-v1.0.0.apk`
-自行审查完整的权限列表。
+---
 
-## 🧱 技术栈
+## 🗺️ 发展路线图 (Roadmap)
 
-- UI 采用 **Kotlin** + **Jetpack Compose**
-- 地图使用 **osmdroid** 及地形瓦片图层
-- 依靠 Android **定位 API** 与**前台服务**实现可靠的骑行记录
-- Target SDK 36 · Min SDK 24
+- [x] 首次公开发布 (`v1.0.0`)
+- [x] 基于纯 Kotlin + Jetpack Compose 全量重构并开源原生工程 (`v7.7`)
+- [x] 苹果级流体 Dock 栏与手势跟手阻尼拖动
+- [x] ArcGIS 卫星影像与 OSM 矢量双模地图
+- [x] 实时海拔升降图与动态坡度显示
+- [x] 骑行历史日志与数据统计
+- [x] 专业级胎压科学计算器
+- [x] 户外抗反光色系与自定义 HEX/RGB 色盘
+- [ ] 导出骑行轨迹为标准 GPX 文件
+- [ ] 蓝牙低功耗 (BLE) 踏频与心率带传感器直连
 
-## ❓ 常见问题
+---
 
-<details>
-<summary><b>H RIDE 上架 Google Play 了吗？</b></summary>
+## 📄 开源许可证
 
-还没有——目前以签名 APK 的形式在此分发。GitHub 上的 Releases 就是官方版本。
-</details>
+本项目基于 [MIT License](LICENSE) 协议开源 © 2026 fastHU。
 
-<details>
-<summary><b>支持哪些 Android 版本？</b></summary>
-
-Android 7.0 (API 24) 及以上，32 位与 64 位设备均可。
-</details>
-
-<details>
-<summary><b>为什么 Android 会提示安装 APK 有风险？</b></summary>
-
-任何在 Play 商店之外安装的应用都会触发该提示。这个 APK 使用固定的发布密钥签名
-（证书 SHA-256
-`d3257079398d904ef92b6508e33b0b46b022f43f74237a4e3d4596ce65d681d5`），
-并且文件的 SHA-256 已在上面公布，方便你自行校验。
-</details>
-
-<details>
-<summary><b>包含原始的 Kotlin 源码吗？</b></summary>
-
-原始 Kotlin 工程没有被保留下来，因此本仓库发布的是[从官方 APK 恢复的代码](decompiled/)。真实的类名、
-字段名与方法名完整保留，整体架构可读，但它是生成的 Java 代码，不能直接编译。详见 [`decompiled/README.md`](decompiled/README.md)。
-</details>
-
-## 🗺️ 路线图
-
-- [x] 首次公开发布（`v1.0.0`）
-- [x] 发布应用代码（[`decompiled/`](decompiled/) 恢复参考）
-- [ ] 基于该参考重写一份干净、可编译的 Kotlin 工程
-- [ ] 骑行历史与单次骑行统计
-- [ ] 导出骑行记录（GPX）
-- [ ] 更多单位、主题与语言
-
-欢迎在 [Issues](https://github.com/fastHU/H-RIDE/issues) 中提出想法和反馈 bug。
-
-## 🤝 参与贡献
-
-- 🐞 发现 bug？请[提交 issue](https://github.com/fastHU/H-RIDE/issues/new)，附上你的手机型号、
-  Android 版本以及问题发生的经过。
-- 💡 有想法？在 issue 里发起讨论——功能建议会直接影响路线图。
-- 🌍 欢迎翻译本 README：复制 `README.md`，翻译后提交 pull request。
-- ⭐ 如果 H RIDE 对你有用，点个 star 能帮更多骑友发现它。
-
-## 📄 许可证
-
-基于 [MIT License](LICENSE) 发布 © 2026 fastHU。
-
-## 🙏 致谢
-
-- [OpenStreetMap](https://www.openstreetmap.org/) 贡献者——地图数据
-- [OpenTopoMap](https://opentopomap.org/)、[Thunderforest](https://www.thunderforest.com/) 与
-  [USGS](https://www.usgs.gov/)——地形瓦片图层
-- [osmdroid](https://github.com/osmdroid/osmdroid)——地图引擎
-- [Jetpack Compose](https://developer.android.com/compose)——UI 工具包
+---
 
 <div align="center">
-  <br>
   <img src="assets/icon.png" alt="H RIDE" width="72">
   <br><br>
-  <a href="https://star-history.com/#fastHU/H-RIDE&Date">
-    <img src="https://api.star-history.com/svg?repos=fastHU/H-RIDE&type=Date" alt="Star history" width="600">
-  </a>
-  <br><br>
-  <sub>骑手打造，献给骑手。🚵</sub>
+  <sub>骑手打造，献给骑手。🚴‍♂️💨</sub>
 </div>
