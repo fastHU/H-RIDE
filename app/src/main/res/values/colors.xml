@@ -1,0 +1,8 @@
+<resources>
+    <color name="velo_bg">#0C0E12</color>
+    <color name="velo_surface">#14171E</color>
+    <color name="velo_accent">#EBE5DA</color>
+    <color name="velo_white">#FAF8F5</color>
+    <color name="velo_muted">#8E95A2</color>
+    <color name="icon_bg_cream">#F5F3EC</color>
+</resources>

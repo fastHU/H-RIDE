@@ -1,8 +1,17 @@
-# H RIDE — source reference
+# H RIDE — source reference (Legacy v1.0.0)
+
+> 💡 **Notice for v7.7+**: Starting with release **v7.7**, H RIDE has been completely rewritten from
+> the ground up into a clean, modern, native Kotlin & Jetpack Compose project. The fully buildable
+> source code is located directly in the root of this repository (`app/`).
+>
+> This `decompiled/` folder is retained solely as an archive and reference of the historical v1.0.0
+> release.
+
+---
 
 This folder contains the code of **H RIDE**, recovered from the official `H-RIDE-v1.0.0.apk`
-release with [jadx](https://github.com/skylot/jadx). It is the reference implementation published
-with this repository.
+release with [jadx](https://github.com/skylot/jadx). It was the reference implementation published
+with the initial release.
 
 > **Generated Java, not the original Kotlin.** The release build was minified but not obfuscated, so
 > every real class, field and method name survived and the whole architecture is readable — but the
